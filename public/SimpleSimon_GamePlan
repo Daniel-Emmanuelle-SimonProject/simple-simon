@@ -1,0 +1,29 @@
+/************************** GAME PLAN **************************/
+
+          HTML
+            header
+            4 elements for boxes
+            footer
+            button to start round
+            element for round number
+            game start screen
+
+          CSS
+            bootstrap over all layout for moblie responsive
+            box elements in one class
+            separate box id's
+            id for header
+            id for footer
+            id for button
+            hovers for boxes
+
+          JavaScript
+            Random number generator from 1-4
+            array for random numbers to be held
+            no round cap (infinite rounds)
+            enter to start round
+            keyboard buttons to select and push boxes and as well click support 
+            var to hold players box choice to compare with random number array
+            loop to keep adding random number to randomNumber Array
+              -which also keeps track of the round
+            reset function for when player fails to chose correct box game restarts and resets randomNumber array is empty
