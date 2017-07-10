@@ -5,6 +5,7 @@
 var sequence = [];
 var playerChoice =[];
 var iteration = 0;
+var count;
 
 //random number generator from 1-4
 function randomNumber(){
@@ -18,28 +19,36 @@ randomNumber();
 
  // runs through sequence array and changes opacity of boxes determined by number value
 function boxSelected(input){
-	for (var i = 0; i < input.length; i++){
-		if (input[i] == 1) {
-			$("#red").css("opacity", "0.75");
-			setTimeout(function(){
-				$("#red").css("opacity", "1");
-			}, 1000);
-		} else if(input[i] == 2) {
-			$("#blue").css("opacity", "0.75");
-			setTimeout(function(){
-				$("#blue").css("opacity", "1");
-			}, 1000);
-		} else if(input[i] == 3) {
-			$("#green").css("opacity", "0.75");
-			setTimeout(function(){
-				$("#green").css("opacity", "1");
-			}, 1000);
-		} else if(input[i] == 4) {
-			$("#yellow").css("opacity", "0.75");
-			setTimeout(function(){
-				$("#yellow").css("opacity", "1");
-			}, 1000);
-		};
+	if (count !== sequence.length) {
+		if (sequence[count] == 1) {
+            $("#red").css("opacity", "0.75");
+            setTimeout(function(){
+                $("#red").css("opacity", "1");
+            }, 1000);
+            count++;
+            boxSelected(sequence);
+        } else if(sequence[count] == 2) {
+            $("#blue").css("opacity", "0.75");
+            setTimeout(function(){
+                $("#blue").css("opacity", "1");
+            }, 1000);
+            count++;
+            boxSelected(sequence);
+        } else if(sequence[count] == 3) {
+            $("#green").css("opacity", "0.75");
+            setTimeout(function(){
+                $("#green").css("opacity", "1");
+            }, 1000);
+            count++;
+            boxSelected(sequence);
+        } else if(sequence[count] == 4) {
+            $("#yellow").css("opacity", "0.75");
+            setTimeout(function(){
+                $("#yellow").css("opacity", "1");
+            }, 1000);
+            count++;
+            boxSelected(sequence);
+        };
 	};
 };
 
