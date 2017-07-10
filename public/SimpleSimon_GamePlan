@@ -27,3 +27,11 @@
             loop to keep adding random number to randomNumber Array
               -which also keeps track of the round
             reset function for when player fails to chose correct box game restarts and resets randomNumber array is empty
+
+
+
+        EXTRA DESIGN STUFF:
+        -background music
+        -sound effects for each "button press"
+        -simon
+
