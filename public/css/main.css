@@ -1,0 +1,20 @@
+.box{
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+}
+.box:hover{
+  opacity: 0.75;
+}
+#red{
+  background-color: red;
+}
+#blue{
+  background-color: blue;
+}
+#green{
+  background-color: green;
+}
+#yellow{
+  background-color: yellow;
+}
