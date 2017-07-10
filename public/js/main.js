@@ -3,9 +3,8 @@
 
 //global variables
 var sequence = [];
-var playerChoice =[];
 var iteration = 0;
-var count;
+var count = 0;
 
 //random number generator from 1-4
 function randomNumber(){
@@ -19,37 +18,68 @@ randomNumber();
 
  // runs through sequence array and changes opacity of boxes determined by number value
 function boxSelected(input){
+	// if (count !== sequence.length) {
+	// 	if (sequence[count] == 1) {
+  //           $("#red").css("opacity", "0.75");
+  //           setTimeout(function(){
+  //               $("#red").css("opacity", "1");
+  //           }, 1000);
+  //           count++;
+  //           boxSelected(sequence);
+  //       } else if(sequence[count] == 2) {
+  //           $("#blue").css("opacity", "0.75");
+  //           setTimeout(function(){
+  //               $("#blue").css("opacity", "1");
+  //           }, 1000);
+  //           count++;
+  //           boxSelected(sequence);
+  //       } else if(sequence[count] == 3) {
+  //           $("#green").css("opacity", "0.75");
+  //           setTimeout(function(){
+  //               $("#green").css("opacity", "1");
+  //           }, 1000);
+  //           count++;
+  //           boxSelected(sequence);
+  //       } else if(sequence[count] == 4) {
+  //           $("#yellow").css("opacity", "0.75");
+  //           setTimeout(function(){
+  //               $("#yellow").css("opacity", "1");
+  //           }, 1000);
+  //           count++;
+  //           boxSelected(sequence);
+  //       };
+	// };
 	if (count !== sequence.length) {
-		if (sequence[count] == 1) {
-            $("#red").css("opacity", "0.75");
-            setTimeout(function(){
-                $("#red").css("opacity", "1");
-            }, 1000);
-            count++;
-            boxSelected(sequence);
-        } else if(sequence[count] == 2) {
-            $("#blue").css("opacity", "0.75");
-            setTimeout(function(){
-                $("#blue").css("opacity", "1");
-            }, 1000);
-            count++;
-            boxSelected(sequence);
-        } else if(sequence[count] == 3) {
-            $("#green").css("opacity", "0.75");
-            setTimeout(function(){
-                $("#green").css("opacity", "1");
-            }, 1000);
-            count++;
-            boxSelected(sequence);
-        } else if(sequence[count] == 4) {
-            $("#yellow").css("opacity", "0.75");
-            setTimeout(function(){
-                $("#yellow").css("opacity", "1");
-            }, 1000);
-            count++;
-            boxSelected(sequence);
-        };
-	};
+		for (var i = 0; i <(count + 1); i++) {
+			if (sequence[i] == 1) {
+				$("#red").css("opacity", "0");
+				setTimeout(function(){
+					$("#red").css("opacity", "1");
+				}, 750);
+			}else if (sequence[i] == 2) {
+				$("#blue").css("opacity", "0");
+				setTimeout(function(){
+					$("#blue").css("opacity", "1");
+				}, 750);
+			}else if (sequence[i] == 3) {
+				$("#green").css("opacity", "0");
+				setTimeout(function(){
+					$("#green").css("opacity", "1");
+				}, 750);
+			}else if (sequence[i] == 4) {
+				$("#yellow").css("opacity", "0");
+				setTimeout(function(){
+					$("#yellow").css("opacity", "1");
+				}, 750);
+			}
+		}
+		setTimeout(function(){
+			count++;
+			boxSelected(sequence);
+		},1500)
+	}else {
+		count = 0;
+	}
 };
 
 function compare(input){
@@ -88,7 +118,6 @@ $(document).on("keydown", function(e){
 	if(e.keyCode == 37){
     console.log(e.keyCode);
 		$("#blue").css("opacity", "0.75");
-    playerChoice.push(2);
     iteration++
 	};
 });
@@ -104,7 +133,6 @@ $(document).on("keydown", function(e){
 	if(e.keyCode == 39){
     console.log(e.keyCode);
 		$("#green").css("opacity", "0.75");
-    playerChoice.push(3);
     iteration++
 	};
 });
@@ -121,7 +149,6 @@ $(document).on("keydown", function(e){
 	if(e.keyCode == 40){
     console.log(e.keyCode);
 		$("#yellow").css("opacity", "0.75");
-    playerChoice.push(4);
     iteration++;
 	};
 });
