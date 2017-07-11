@@ -16,71 +16,43 @@ function randomNumber(){
 
 randomNumber();
 
+
  // runs through sequence array and changes opacity of boxes determined by number value
-function boxSelected(input){
-	// if (count !== sequence.length) {
-	// 	if (sequence[count] == 1) {
-  //           $("#red").css("opacity", "0.75");
-  //           setTimeout(function(){
-  //               $("#red").css("opacity", "1");
-  //           }, 1000);
-  //           count++;
-  //           boxSelected(sequence);
-  //       } else if(sequence[count] == 2) {
-  //           $("#blue").css("opacity", "0.75");
-  //           setTimeout(function(){
-  //               $("#blue").css("opacity", "1");
-  //           }, 1000);
-  //           count++;
-  //           boxSelected(sequence);
-  //       } else if(sequence[count] == 3) {
-  //           $("#green").css("opacity", "0.75");
-  //           setTimeout(function(){
-  //               $("#green").css("opacity", "1");
-  //           }, 1000);
-  //           count++;
-  //           boxSelected(sequence);
-  //       } else if(sequence[count] == 4) {
-  //           $("#yellow").css("opacity", "0.75");
-  //           setTimeout(function(){
-  //               $("#yellow").css("opacity", "1");
-  //           }, 1000);
-  //           count++;
-  //           boxSelected(sequence);
-  //       };
-	// };
-	if (count !== sequence.length) {
-		for (var i = 0; i <(count + 1); i++) {
-			if (sequence[i] == 1) {
-				$("#red").css("opacity", "0");
-				setTimeout(function(){
-					$("#red").css("opacity", "1");
-				}, 750);
-			}else if (sequence[i] == 2) {
-				$("#blue").css("opacity", "0");
-				setTimeout(function(){
-					$("#blue").css("opacity", "1");
-				}, 750);
-			}else if (sequence[i] == 3) {
-				$("#green").css("opacity", "0");
-				setTimeout(function(){
-					$("#green").css("opacity", "1");
-				}, 750);
-			}else if (sequence[i] == 4) {
-				$("#yellow").css("opacity", "0");
-				setTimeout(function(){
-					$("#yellow").css("opacity", "1");
-				}, 750);
-			}
+function boxSelected(){
+	var changeOpacity = setInterval(function(){
+		if (count < sequence.length) {
+				if (sequence[count] == 1) {
+					$('#red').css('opacity','0')
+					setTimeout(function(){
+						$('#red').css('opacity','1')
+					},1000);
+					count++;
+				}else if (sequence[count] == 2) {
+					$('#blue').css('opacity','0')
+					setTimeout(function(){
+						$('#blue').css('opacity','1')
+					},1000);
+					count++;
+				}else if (sequence[count] == 3) {
+					$('#green').css('opacity','0')
+					setTimeout(function(){
+						$('#green').css('opacity','1')
+					},1000);
+					count++
+				}else if (sequence[count] == 4) {
+					$('#yellow').css('opacity','0')
+					setTimeout(function(){
+						$('#yellow').css('opacity','1')
+					},1000);
+					count++
+				}
+		}else {
+			clearInterval(changeOpacity);
+			count = 0;
+			console.log("All Done");
 		}
-		setTimeout(function(){
-			count++;
-			boxSelected(sequence);
-		},1500)
-	}else {
-		count = 0;
-	}
-};
+	},1600)
+}
 
 function compare(input){
   if (iteration !== sequence.length) {
