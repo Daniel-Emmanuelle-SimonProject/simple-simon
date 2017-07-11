@@ -77,6 +77,7 @@ function compare(input){
       console.log("GAME OVER");
       sequence = [];
       iteration = 0;
+			count = 0;
     }
   }else {
     iteration = 0;
