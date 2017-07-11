@@ -5,46 +5,44 @@
 var sequence = [];
 var iteration = 0;
 var count = 0;
-var doc = $(document)
 
-/************************ GAME FUNCTIONS ******************/
-
-function startGame(){
-	randomNumber();
-	setTimeout(attachEvents,2000)
-}
 //random number generator from 1-4
 function randomNumber(){
 	var number = parseInt(Math.random() * (5 - 1) + 1);
 	sequence.push(number);
+  console.log(sequence);
 	boxSelected(sequence);
 };
+
+randomNumber();
+
+
  // runs through sequence array and changes opacity of boxes determined by number value
 function boxSelected(){
 	var changeOpacity = setInterval(function(){
 		if (count < sequence.length) {
 				if (sequence[count] == 1) {
-					$('#head').css('opacity','0')
+					$('#red').css('opacity','0')
 					setTimeout(function(){
-						$('#head').css('opacity','1')
+						$('#red').css('opacity','1')
 					},1000);
 					count++;
 				}else if (sequence[count] == 2) {
-					$('#leftArm').css('opacity','0')
+					$('#blue').css('opacity','0')
 					setTimeout(function(){
-						$('#leftArm').css('opacity','1')
+						$('#blue').css('opacity','1')
 					},1000);
 					count++;
 				}else if (sequence[count] == 3) {
-					$('#rightArm').css('opacity','0')
+					$('#green').css('opacity','0')
 					setTimeout(function(){
-						$('#rightArm').css('opacity','1')
+						$('#green').css('opacity','1')
 					},1000);
 					count++
 				}else if (sequence[count] == 4) {
-					$('#abs').css('opacity','0')
+					$('#yellow').css('opacity','0')
 					setTimeout(function(){
-						$('#abs').css('opacity','1')
+						$('#yellow').css('opacity','1')
 					},1000);
 					count++
 				}
@@ -71,73 +69,67 @@ function compare(input){
   }
 }
 
-/******************** EVENT LISTENERS *****************/
 //assigning the numbers to each keypress
+//up (1)
+$(document).on("keydown", function(e){
+	if(e.keyCode == 38){
+    console.log(e.keyCode);
+		$("#red").css("opacity", "0.75");
+    iteration++
+	};
+});
+$(document).on("keyup", function(e){
+	if(e.keyCode == 38){
+		$("#red").css("opacity", "1");
+    compare(1);
+	};
+});
 
-function attachEvents(){
-	doc.on('keydown',upArrow)
-	doc.on('keyup',upArrow)
+//left (2)
+$(document).on("keydown", function(e){
+	if(e.keyCode == 37){
+    console.log(e.keyCode);
+		$("#blue").css("opacity", "0.75");
+    iteration++
+	};
+});
+$(document).on("keyup", function(e){
+	if(e.keyCode == 37){
+		$("#blue").css("opacity", "1");
+    compare(2);
+	};
+});
 
-	doc.on('keydown',leftArrow)
-	doc.on('keyup',leftArrow)
+//right (3)
+$(document).on("keydown", function(e){
+	if(e.keyCode == 39){
+    console.log(e.keyCode);
+		$("#green").css("opacity", "0.75");
+    iteration++
+	};
+});
+$(document).on("keyup", function(e){
+	if(e.keyCode == 39){
+		$("#green").css("opacity", "1");
+    compare(3);
+	};
+});
 
-	doc.on('keydown',rightArrow)
- 	doc.on('keyup',rightArrow)
 
-	doc.on('keydown',downArrow)
-	doc.on('keyup',downArrow)
-}
-
-function upArrow(e){
-		if(e.keyCode == 38){
-			console.log(e.keyCode);
-			$("#head").css("opacity", "0.75");
-			iteration++
-		};
-		if(e.keyCode == 38){
-			$("#head").css("opacity", "1");
-			compare(1);
-		};
-}
-
-function leftArrow(e){
-
-		if(e.keyCode == 37){
-			console.log(e.keyCode);
-			$("#leftArm").css("opacity", "0.75");
-			iteration++
-		};
-		if(e.keyCode == 37){
-			$("#leftArm").css("opacity", "1");
-			compare(2);
-		};
-}
-
-function rightArrow(e){
-
-		if(e.keyCode == 39){
-			console.log(e.keyCode);
-			$("#rightArm").css("opacity", "0.75");
-			iteration++
-		};
-		if(e.keyCode == 39){
-			$("#rightArm").css("opacity", "1");
-			compare(3);
-		};
-}
-
-function downArrow(e){
-
-		if(e.keyCode == 40){
-			console.log(e.keyCode);
-			$("#abs").css("opacity", "0.75");
-			iteration++;
-		};
-		if(e.keyCode == 40){
-			$("#abs").css("opacity", "1");
-			compare(4);
-		};
-}
+//down (4)
+$(document).on("keydown", function(e){
+	if(e.keyCode == 40){
+    console.log(e.keyCode);
+		$("#yellow").css("opacity", "0.75");
+    iteration++;
+	};
+});
+$(document).on("keyup", function(e){
+	if(e.keyCode == 40){
+		$("#yellow").css("opacity", "1");
+    compare(4);
+	};
+});
 
 
 
