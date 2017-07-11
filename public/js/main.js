@@ -6,6 +6,13 @@ var sequence = [];
 var iteration = 0;
 var count = 0;
 
+
+/************************ GAME FUNCTIONS ******************/
+$("#tattoo").click(startGame);
+function startGame(){
+	randomNumber();
+	setTimeout(attachEvents,2000)
+}
 //random number generator from 1-4
 function randomNumber(){
 	var number = parseInt(Math.random() * (5 - 1) + 1);
@@ -55,7 +62,11 @@ function boxSelected(){
 }
 
 function compare(input){
-  if (iteration !== sequence.length) {
+	console.log('--- compare! ---');
+	console.log('input: ' + input);
+	console.log('sequence: ' + sequence + ' length: ' + sequence.length);
+	console.log('iteration: ' + iteration);
+  if (iteration <sequence.length) {
     if (sequence[iteration-1] == input ) {
       console.log("GOOD");
     }else {
@@ -70,66 +81,64 @@ function compare(input){
 }
 
 //assigning the numbers to each keypress
-//up (1)
-$(document).on("keydown", function(e){
-	if(e.keyCode == 38){
-    console.log(e.keyCode);
-		$("#red").css("opacity", "0.75");
-    iteration++
-	};
-});
-$(document).on("keyup", function(e){
-	if(e.keyCode == 38){
-		$("#red").css("opacity", "1");
-    compare(1);
-	};
-});
-
-//left (2)
-$(document).on("keydown", function(e){
-	if(e.keyCode == 37){
-    console.log(e.keyCode);
-		$("#blue").css("opacity", "0.75");
-    iteration++
-	};
-});
-$(document).on("keyup", function(e){
-	if(e.keyCode == 37){
-		$("#blue").css("opacity", "1");
-    compare(2);
-	};
-});
-
-//right (3)
-$(document).on("keydown", function(e){
-	if(e.keyCode == 39){
-    console.log(e.keyCode);
-		$("#green").css("opacity", "0.75");
-    iteration++
-	};
-});
-$(document).on("keyup", function(e){
-	if(e.keyCode == 39){
-		$("#green").css("opacity", "1");
-    compare(3);
-	};
-});
 
 
-//down (4)
-$(document).on("keydown", function(e){
-	if(e.keyCode == 40){
-    console.log(e.keyCode);
-		$("#yellow").css("opacity", "0.75");
-    iteration++;
-	};
-});
-$(document).on("keyup", function(e){
-	if(e.keyCode == 40){
-		$("#yellow").css("opacity", "1");
-    compare(4);
-	};
-});
+function attachEvents(){
+	// doc.on('keydown',upArrow)
+	doc.on('keyup',upArrow)
+
+	// doc.on('keydown',leftArrow)
+	doc.on('keyup',leftArrow)
+
+	// doc.on('keydown',rightArrow)
+ 	doc.on('keyup',rightArrow)
+
+	// doc.on('keydown',downArrow)
+	doc.on('keyup',downArrow)
+}
+
+function upArrow(e){
+		if(e.keyCode == 38){
+			console.log(e.keyCode);
+			$("#head").css("opacity", "0.75");
+			iteration++
+			$("#head").css("opacity", "1");
+			compare(1);
+		};
+}
+
+function leftArrow(e){
+
+		if(e.keyCode == 37){
+			console.log(e.keyCode);
+			$("#leftArm").css("opacity", "0.75");
+			iteration++
+			$("#leftArm").css("opacity", "1");
+			compare(2);
+		};
+}
+
+function rightArrow(e){
+
+		if(e.keyCode == 39){
+			console.log(e.keyCode);
+			$("#rightArm").css("opacity", "0.75");
+			iteration++
+			$("#rightArm").css("opacity", "1");
+			compare(3);
+		};
+}
+
+function downArrow(e){
+
+		if(e.keyCode == 40){
+			console.log(e.keyCode);
+			$("#abs").css("opacity", "0.75");
+			iteration++;
+			$("#abs").css("opacity", "1");
+			compare(4);
+		};
+}
 
 
 
