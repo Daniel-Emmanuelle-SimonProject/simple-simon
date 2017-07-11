@@ -26,3 +26,51 @@
 body {
 	background-color: black;
 }
+
+img{
+  max-height: 45%;
+  max-width: auto;
+  margin: auto;
+  display: block;
+}
+
+div#head{
+  content:url("/img/simon/simonHead.gif");
+  position: relative;
+  margin: auto;
+  display: block;
+  top: 20em;
+  max-height: 75%;
+  max-width: auto;
+}
+
+div#tattoo{
+  content:url("/img/simon/simonTattoo.png");
+  position: relative;
+  margin: auto;
+  display: block;
+  top: 22em;
+}
+
+div#tattoo:hover{
+  content:url("/img/simon/simonTattooHover.png");
+}
+
+div#leftArm{
+  content:url("/img/simon/leftArm.gif");
+  float: left;
+  left: 35em;
+}
+
+div#rightArm{
+  content:url("/img/simon/rightArm.gif");
+  float: right;
+}
+
+body{
+  background-color: papayawhip;
+}
+
+div.torso{
+  background-color: white;
+}
