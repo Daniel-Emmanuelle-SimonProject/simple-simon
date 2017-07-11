@@ -8,7 +8,7 @@ var count = 0;
 var doc = $(document)
 
 /************************ GAME FUNCTIONS ******************/
-
+$("#tattoo").click(startGame);
 function startGame(){
 	randomNumber();
 	setTimeout(attachEvents,2000)
@@ -57,7 +57,11 @@ function boxSelected(){
 }
 
 function compare(input){
-  if (iteration !== sequence.length) {
+	console.log('--- compare! ---');
+	console.log('input: ' + input);
+	console.log('sequence: ' + sequence + ' length: ' + sequence.length);
+	console.log('iteration: ' + iteration);
+  if (iteration <sequence.length) {
     if (sequence[iteration-1] == input ) {
       console.log("GOOD");
     }else {
@@ -75,16 +79,16 @@ function compare(input){
 //assigning the numbers to each keypress
 
 function attachEvents(){
-	doc.on('keydown',upArrow)
+	// doc.on('keydown',upArrow)
 	doc.on('keyup',upArrow)
 
-	doc.on('keydown',leftArrow)
+	// doc.on('keydown',leftArrow)
 	doc.on('keyup',leftArrow)
 
-	doc.on('keydown',rightArrow)
+	// doc.on('keydown',rightArrow)
  	doc.on('keyup',rightArrow)
 
-	doc.on('keydown',downArrow)
+	// doc.on('keydown',downArrow)
 	doc.on('keyup',downArrow)
 }
 
@@ -93,8 +97,6 @@ function upArrow(e){
 			console.log(e.keyCode);
 			$("#head").css("opacity", "0.75");
 			iteration++
-		};
-		if(e.keyCode == 38){
 			$("#head").css("opacity", "1");
 			compare(1);
 		};
@@ -106,8 +108,6 @@ function leftArrow(e){
 			console.log(e.keyCode);
 			$("#leftArm").css("opacity", "0.75");
 			iteration++
-		};
-		if(e.keyCode == 37){
 			$("#leftArm").css("opacity", "1");
 			compare(2);
 		};
@@ -119,8 +119,6 @@ function rightArrow(e){
 			console.log(e.keyCode);
 			$("#rightArm").css("opacity", "0.75");
 			iteration++
-		};
-		if(e.keyCode == 39){
 			$("#rightArm").css("opacity", "1");
 			compare(3);
 		};
@@ -132,8 +130,6 @@ function downArrow(e){
 			console.log(e.keyCode);
 			$("#abs").css("opacity", "0.75");
 			iteration++;
-		};
-		if(e.keyCode == 40){
 			$("#abs").css("opacity", "1");
 			compare(4);
 		};
