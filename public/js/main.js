@@ -5,7 +5,7 @@
 var sequence = [];
 var iteration = 0;
 var count = 0;
-
+var doc = $(document);
 
 /************************ GAME FUNCTIONS ******************/
 $("#tattoo").click(startGame);
@@ -16,49 +16,53 @@ function startGame(){
 //random number generator from 1-4
 function randomNumber(){
 	var number = parseInt(Math.random() * (5 - 1) + 1);
+	$('#round').html((count + 1));
 	sequence.push(number);
   console.log(sequence);
 	boxSelected(sequence);
 };
 
-randomNumber();
+
 
 
  // runs through sequence array and changes opacity of boxes determined by number value
 function boxSelected(){
-	var changeOpacity = setInterval(function(){
-		if (count < sequence.length) {
+	setTimeout(function(){
+
+		var changeOpacity = setInterval(function(){
+			if (count < sequence.length) {
 				if (sequence[count] == 1) {
-					$('#red').css('opacity','0')
+					$('#head').css('opacity','0')
 					setTimeout(function(){
-						$('#red').css('opacity','1')
+						$('#head').css('opacity','1')
 					},1000);
 					count++;
 				}else if (sequence[count] == 2) {
-					$('#blue').css('opacity','0')
+					$('#rightArm').css('opacity','0')
 					setTimeout(function(){
-						$('#blue').css('opacity','1')
+						$('#rightArm').css('opacity','1')
 					},1000);
 					count++;
 				}else if (sequence[count] == 3) {
-					$('#green').css('opacity','0')
+					$('#leftArm').css('opacity','0')
 					setTimeout(function(){
-						$('#green').css('opacity','1')
+						$('#leftArm').css('opacity','1')
 					},1000);
 					count++
 				}else if (sequence[count] == 4) {
-					$('#yellow').css('opacity','0')
+					$('#abs').css('opacity','0')
 					setTimeout(function(){
-						$('#yellow').css('opacity','1')
+						$('#abs').css('opacity','1')
 					},1000);
 					count++
 				}
-		}else {
-			clearInterval(changeOpacity);
-			count = 0;
-			console.log("All Done");
-		}
-	},1600)
+			}else {
+				clearInterval(changeOpacity);
+				count = 0;
+				console.log("All Done");
+			}
+		},1600)
+	},1500);
 }
 
 function compare(input){
@@ -84,60 +88,71 @@ function compare(input){
 
 
 function attachEvents(){
-	// doc.on('keydown',upArrow)
+	$("#head").on('click',head)
 	doc.on('keyup',upArrow)
 
-	// doc.on('keydown',leftArrow)
+	$("leftArm").on('click',leftArm)
 	doc.on('keyup',leftArrow)
 
-	// doc.on('keydown',rightArrow)
+	$("#rightArm").on('click',rightArm)
  	doc.on('keyup',rightArrow)
 
-	// doc.on('keydown',downArrow)
+	$("#abs").on('click',abs)
 	doc.on('keyup',downArrow)
 }
 
 function upArrow(e){
+	e.preventDefault();
 		if(e.keyCode == 38){
-			console.log(e.keyCode);
-			$("#head").css("opacity", "0.75");
-			iteration++
-			$("#head").css("opacity", "1");
-			compare(1);
+			head();
 		};
 }
 
 function leftArrow(e){
-
+		e.preventDefault();
 		if(e.keyCode == 37){
-			console.log(e.keyCode);
-			$("#leftArm").css("opacity", "0.75");
-			iteration++
-			$("#leftArm").css("opacity", "1");
-			compare(2);
+			leftArm();
 		};
 }
 
 function rightArrow(e){
-
+		e.preventDefault();
 		if(e.keyCode == 39){
-			console.log(e.keyCode);
-			$("#rightArm").css("opacity", "0.75");
-			iteration++
-			$("#rightArm").css("opacity", "1");
-			compare(3);
+			rightArm();
 		};
 }
 
 function downArrow(e){
-
+		e.preventDefault();
 		if(e.keyCode == 40){
-			console.log(e.keyCode);
-			$("#abs").css("opacity", "0.75");
-			iteration++;
-			$("#abs").css("opacity", "1");
-			compare(4);
+			abs();
 		};
+}
+function head(){
+	$("#head").css("opacity", "0.75");
+	iteration++;
+	$("#head").css("opacity", "1");
+	compare(1);
+}
+
+function leftArm(){
+	$("#leftArm").css("opacity", "0.75");
+	iteration++;
+	$("#leftArm").css("opacity", "1");
+	compare(2);
+}
+
+function rightArm(){
+	$("#rightArm").css("opacity", "0.75");
+	iteration++;
+	$("#rightArm").css("opacity", "1");
+	compare(3);
+}
+function abs(){
+	$("#abs").css("opacity", "0.75");
+	iteration++;
+	$("#abs").css("opacity", "1");
+	compare(4);
 }
 
 
