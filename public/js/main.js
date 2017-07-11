@@ -38,15 +38,15 @@ function boxSelected(){
 					},1000);
 					count++;
 				}else if (sequence[count] == 2) {
-					$('#rightArm').css('opacity','0')
-					setTimeout(function(){
-						$('#rightArm').css('opacity','1')
-					},1000);
-					count++;
-				}else if (sequence[count] == 3) {
 					$('#leftArm').css('opacity','0')
 					setTimeout(function(){
 						$('#leftArm').css('opacity','1')
+					},1000);
+					count++;
+				}else if (sequence[count] == 3) {
+					$('#rightArm').css('opacity','0')
+					setTimeout(function(){
+						$('#rightArm').css('opacity','1')
 					},1000);
 					count++
 				}else if (sequence[count] == 4) {
@@ -103,36 +103,36 @@ function attachEvents(){
 }
 
 function upArrow(e){
-	e.preventDefault();
 		if(e.keyCode == 38){
+			e.preventDefault();
 			head();
 		};
 }
 
 function leftArrow(e){
-		e.preventDefault();
 		if(e.keyCode == 37){
+			e.preventDefault();
 			leftArm();
 		};
 }
 
 function rightArrow(e){
-		e.preventDefault();
 		if(e.keyCode == 39){
+			e.preventDefault();
 			rightArm();
 		};
 }
 
 function downArrow(e){
-		e.preventDefault();
 		if(e.keyCode == 40){
+			e.preventDefault();
 			abs();
 		};
 }
 function head(){
-	$("#head").css("opacity", "0.75");
+	$("#head").css("content", "url(/img/simon/simonHeadHit.gif)");
 	iteration++;
-	$("#head").css("opacity", "1");
+	$("#head").css("content", "url(/img/simon/simonHead.gif)");
 	compare(1);
 }
 
