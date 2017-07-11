@@ -27,11 +27,14 @@ body {
 	background-color: black;
 }
 
+/********SIMON DESIGN*********/
+
 img{
-  max-height: 45%;
-  max-width: auto;
+  max-height: auto;
+  max-width: 45%;
   margin: auto;
   display: block;
+  background-color: white;  
 }
 
 div#head{
@@ -39,9 +42,9 @@ div#head{
   position: relative;
   margin: auto;
   display: block;
-  top: 20em;
-  max-height: 75%;
-  max-width: auto;
+  top: 41em;
+  max-height: auto;
+  max-width: 18%;
 }
 
 div#tattoo{
@@ -49,7 +52,9 @@ div#tattoo{
   position: relative;
   margin: auto;
   display: block;
-  top: 22em;
+  top: 42em;
+  max-width: 15%;
+  max-height: auto;
 }
 
 div#tattoo:hover{
@@ -58,19 +63,28 @@ div#tattoo:hover{
 
 div#leftArm{
   content:url("/img/simon/leftArm.gif");
-  float: left;
-  left: 35em;
+  position: relative;
+  top:27em;
+  left: 19em;
 }
 
 div#rightArm{
   content:url("/img/simon/rightArm.gif");
-  float: right;
+  position: relative;
+  left: 46.5em;
+  bottom: 27.5em;
 }
 
 body{
   background-color: papayawhip;
 }
 
-div.torso{
-  background-color: white;
+div#rightArm, div#leftArm {
+  max-width: 20%;
+  max-height: auto;
 }
+
+.bodyButtons:hover{
+  opacity: 0.6;
+}
+
