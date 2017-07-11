@@ -29,6 +29,16 @@ body {
 
 /********SIMON DESIGN*********/
 
+#abs{
+  content:url("/img/simon/abs.gif");
+  max-width: 20%;
+  max-height: auto;
+  margin: auto;
+  display: block;
+  position: relative;
+  bottom: 40em;
+}
+
 img{
   max-height: auto;
   max-width: 45%;
