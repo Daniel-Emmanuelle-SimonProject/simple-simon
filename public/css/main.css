@@ -2,7 +2,13 @@
 
 /********SIMON DESIGN*********/
 
-
+#round{
+  content: url("/img/simon/round.png");
+  max-height: auto;
+  max-width: 25%;
+  display: block;
+  margin: auto;
+}
 .abs{
   content:url("/img/simon/abs.gif");
   max-width: 20%;

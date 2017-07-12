@@ -18,7 +18,7 @@ function startGame(){
 function randomNumber(){
 	disableEvents();
 	var number = parseInt(Math.random() * (5 - 1) + 1);
-	$('#round').html((round));
+	$('#round').append(round);
 	if (round % 5 == 0) {
 		speed -= 50;
 	}else if (speed == 400 ) {
