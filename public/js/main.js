@@ -49,11 +49,13 @@ function startGame(){
 	simonLaugh.currentTime = 0;
 	simonSaysFight.play();
 	randomNumber();
+	$('#tattoo').toggleClass('tattooHover').toggleClass('tattoo')
 	$('#tattoo').off('click');
 }
 function gameOver(){
 	disableEvents();
 	simonTaunt.play();
+	$('#tattoo').toggleClass('tattoo').toggleClass('tattooHover')
 	$('#tattoo').on('click',startGame)
 	sequence = [];
 	iteration = 0;
