@@ -1,13 +1,19 @@
 
 
 /********SIMON DESIGN*********/
-
+.container{
+  max-height: 50px;
+}
 #round{
   content: url("/img/simon/round.png");
   max-height: auto;
   max-width: 25%;
   display: block;
   margin: auto;
+  position: relative;
+  top: 90em;
+  right: 7em;
+  color: red;
 }
 .abs{
   content:url("/img/simon/abs.gif");
@@ -119,7 +125,7 @@ div.rightArm, div.leftArm {
 
 /******hit buttons********/
 .headHit{
-  content: url("/img/simon/headHead.gif");
+  content: url("/img/simon/simonHeadHit.gif");
   position: relative;
   margin: auto;
   display: block;

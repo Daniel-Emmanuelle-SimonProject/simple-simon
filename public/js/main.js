@@ -10,9 +10,10 @@ var speed = 1500;
 var doc = $(document);
 
 /************************ GAME FUNCTIONS ******************/
-$("#tattoo").click(startGame);
+$("#tattoo").on('click',startGame);
 function startGame(){
 	randomNumber();
+	$('#tattoo').off('click');
 }
 //random number generator from 1-4
 function randomNumber(){
@@ -150,28 +151,36 @@ function downArrow(e){
 function head(){
 	$("#head").toggleClass('head').toggleClass('headHit')
 	iteration++;
-	$("#head").toggleClass('headHit').toggleClass('head');
-	compare(1);
+	setTimeout(function(){
+		$("#head").toggleClass('headHit').toggleClass('head');
+		compare(1);
+	},250)
 }
 
 function leftArm(){
 	$("#leftArm").toggleClass('leftArm').toggleClass('leftArmHit')
 	iteration++;
-	$("#leftArm").toggleClass('leftArmHit').toggleClass('leftArm')
-	compare(2);
+	setTimeout(function(){
+		$("#leftArm").toggleClass('leftArmHit').toggleClass('leftArm')
+		compare(2);
+	},250)
 }
 
 function rightArm(){
 	$("#rightArm").toggleClass('rightArm').toggleClass('rightArmHit')
 	iteration++;
-	$("#rightArm").toggleClass('rightArmHit').toggleClass('rightArm')
-	compare(3);
+	setTimeout(function(){
+		$("#rightArm").toggleClass('rightArmHit').toggleClass('rightArm')
+		compare(3);
+	},250)
 }
 function abs(){
 	$("#abs").toggleClass('abs').toggleClass('absHit')
 	iteration++;
-	$("#abs").toggleClass('absHit').toggleClass('abs')
-	compare(4);
+	setTimeout(function(){
+		$("#abs").toggleClass('absHit').toggleClass('abs')
+		compare(4);
+	},250)
 }
 
 
