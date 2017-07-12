@@ -43,7 +43,7 @@ div.head{
   max-width: 18%;
 }
 
-div#tattoo{
+div.tattoo{
   content:url("/img/simon/simonTattoo.png");
   position: relative;
   margin: auto;
@@ -53,8 +53,14 @@ div#tattoo{
   max-height: auto;
 }
 
-div#tattoo:hover{
+div.tattooHover:hover{
   content:url("/img/simon/simonTattooHover.png");
+  position: relative;
+  margin: auto;
+  display: block;
+  top: 42em;
+  max-width: 15%;
+  max-height: auto;
 }
 
 div.leftArm{
