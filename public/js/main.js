@@ -1,6 +1,19 @@
 (function (){
 "use strict";
 
+/***************AUDIO VARIABLES**************/
+//synth sounds
+var synthHead = $("#synthHead");
+var synthLeftArm = $("#synthLeftArm");
+var synthRightArm = $("#synthRightArm");
+var synthAbs = $("#synthAbs");
+
+//misc sounds
+var simonSaysFight = $("#simonSaysFight");
+var simonTaunt = $("#simonTaunt");
+var simonLaugh = $("#simonLaugh");
+var punchSFX = $("#punchSFX");
+
 //global variables
 var sequence = [];
 var iteration = 0;
