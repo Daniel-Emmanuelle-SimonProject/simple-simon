@@ -53,14 +53,17 @@ div.tattoo{
   max-height: auto;
 }
 
-div.tattooHover:hover{
-  content:url("/img/simon/simonTattooHover.png");
+div.tattooHover{
+  content:url("/img/simon/simonTattoo.png");
   position: relative;
   margin: auto;
   display: block;
   top: 42em;
   max-width: 15%;
   max-height: auto;
+}
+.tattooHover:hover{
+  content: url("/img/simon/simonTattooHover.png")
 }
 
 div.leftArm{
