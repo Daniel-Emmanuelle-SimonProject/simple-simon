@@ -183,3 +183,7 @@ div.rightArm, div.leftArm {
   max-height: auto;
   max-width: 60%;
 }
+
+h4{
+  text-align: center;
+}
