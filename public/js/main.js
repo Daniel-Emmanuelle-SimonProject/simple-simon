@@ -3,16 +3,16 @@
 
 /***************AUDIO VARIABLES**************/
 //synth sounds
-var synthHead = $("#synthHead");
-var synthLeftArm = $("#synthLeftArm");
-var synthRightArm = $("#synthRightArm");
-var synthAbs = $("#synthAbs");
+var synthHead = $("#synthHead")[0];
+var synthLeftArm = $("#synthLeftArm")[0];
+var synthRightArm = $("#synthRightArm")[0];
+var synthAbs = $("#synthAbs")[0];
 
 //misc sounds
-var simonSaysFight = $("#simonSaysFight");
-var simonTaunt = $("#simonTaunt");
-var simonLaugh = $("#simonLaugh");
-var punchSFX = $("#punchSFX");
+var simonSaysFight = $("#simonSaysFight")[0];
+var simonTaunt = $("#simonTaunt")[0];
+var simonLaugh = $("#simonLaugh")[0];
+var punchSFX = $("#punchSFX")[0];
 
 //global variables
 var sequence = [];
@@ -25,8 +25,17 @@ var doc = $(document);
 /************************ GAME FUNCTIONS ******************/
 $("#tattoo").on('click',startGame);
 function startGame(){
+	simonLaugh.currentTime = 0;
+	simonSaysFight.play();
 	randomNumber();
 	$('#tattoo').off('click');
+}
+function gameOver(){
+	simonLaugh.play();
+	$('#tattoo').on('click',startGame)
+	sequence = [];
+	iteration = 0;
+	count = 0;
 }
 //random number generator from 1-4
 function randomNumber(){
@@ -55,26 +64,34 @@ function boxSelected(){
 			if (count < sequence.length) {
 				if (sequence[count] == 1) {
 					$('#head').toggleClass('head').toggleClass('headSelect')
+					synthHead.play();
 					setTimeout(function(){
 						$('#head').toggleClass('headSelect').toggleClass('head')
+						synthHead.currentTime = 0;
 					},400);
 					count++;
 				}else if (sequence[count] == 2) {
 					$('#leftArm').toggleClass('leftArm').toggleClass('leftArmSelect')
+					synthLeftArm.play();
 					setTimeout(function(){
 						$('#leftArm').toggleClass('leftArmSelect').toggleClass('leftArm');
+						synthLeftArm.currentTime = 0;
 					},400);
 					count++;
 				}else if (sequence[count] == 3) {
 					$('#rightArm').toggleClass('rightArm').toggleClass('rightArmSelect')
+					synthRightArm.play();
 					setTimeout(function(){
 						$('#rightArm').toggleClass('rightArmSelect').toggleClass('rightArm')
+						synthRightArm.currentTime = 0;
 					},400);
 					count++
 				}else if (sequence[count] == 4) {
 					$('#abs').toggleClass('abs').toggleClass('absSelect')
+					synthAbs.play();
 					setTimeout(function(){
 						$('#abs').toggleClass('absSelect').toggleClass('abs')
+						synthAbs.currentTime = 0;
 					},400);
 					count++
 				}
@@ -98,9 +115,7 @@ function compare(input){
       console.log("GOOD");
     }else {
       console.log("GAME OVER");
-      sequence = [];
-      iteration = 0;
-			count = 0;
+			gameOver();
     }
   }else {
 		round++;
@@ -163,35 +178,43 @@ function downArrow(e){
 }
 function head(){
 	$("#head").toggleClass('head').toggleClass('headHit')
+	punchSFX.play();
 	iteration++;
 	setTimeout(function(){
 		$("#head").toggleClass('headHit').toggleClass('head');
+		punchSFX.currentTime = 0;
 		compare(1);
 	},250)
 }
 
 function leftArm(){
 	$("#leftArm").toggleClass('leftArm').toggleClass('leftArmHit')
+	punchSFX.play();
 	iteration++;
 	setTimeout(function(){
 		$("#leftArm").toggleClass('leftArmHit').toggleClass('leftArm')
+		punchSFX.currentTime = 0;
 		compare(2);
 	},250)
 }
 
 function rightArm(){
 	$("#rightArm").toggleClass('rightArm').toggleClass('rightArmHit')
+	punchSFX.play();
 	iteration++;
 	setTimeout(function(){
 		$("#rightArm").toggleClass('rightArmHit').toggleClass('rightArm')
+		punchSFX.currentTime = 0;
 		compare(3);
 	},250)
 }
 function abs(){
 	$("#abs").toggleClass('abs').toggleClass('absHit')
+	punchSFX.play();
 	iteration++;
 	setTimeout(function(){
 		$("#abs").toggleClass('absHit').toggleClass('abs')
+		punchSFX.currentTime = 0;
 		compare(4);
 	},250)
 }
