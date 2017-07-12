@@ -71,7 +71,7 @@ function boxSelected(){
 				console.log("All Done");
 			}
 		},speed)
-	},1000);
+	},500);
 }
 
 function compare(input){

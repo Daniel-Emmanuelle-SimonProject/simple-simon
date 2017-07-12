@@ -31,7 +31,7 @@ div.head{
   max-width: 18%;
 }
 
-div.tattoo{
+div#tattoo{
   content:url("/img/simon/simonTattoo.png");
   position: relative;
   margin: auto;
@@ -41,7 +41,7 @@ div.tattoo{
   max-height: auto;
 }
 
-div.tattoo:hover{
+div#tattoo:hover{
   content:url("/img/simon/simonTattooHover.png");
 }
 
@@ -74,35 +74,78 @@ div.rightArm, div.leftArm {
 
 /******select buttons******/
 .headSelect{
-  content: url("/img/simon/headSelect.gif");
+  content: url("/img/simon/simonHeadSelect.gif");
+  position: relative;
+  margin: auto;
+  display: block;
+  top: 41em;
+  max-height: auto;
+  max-width: 18%;
 }
 
 .leftArmSelect{
   content: url("/img/simon/leftArmSelect.gif");
+  position: relative;
+  top:27em;
+  left: 19em;
+  max-width: 20%;
+  max-height: auto;
 }
 
 .rightArmSelect{
-  content: url("/img/simon/rightArmSelect");
+  content: url("/img/simon/rightArmSelect.gif");
+  position: relative;
+  left: 46.5em;
+  bottom: 27.5em;
+  max-width: 20%;
+  max-height: auto;
 }
 
 .absSelect{
-  content: url("/img/simon/absSelect");
+  content: url("/img/simon/absSelect.gif");
+  max-width: 20%;
+  max-height: auto;
+  margin: auto;
+  display: block;
+  position: relative;
+  bottom: 40em;
 }
 
 /******hit buttons********/
 .headHit{
   content: url("/img/simon/headHead.gif");
+  position: relative;
+  margin: auto;
+  display: block;
+  top: 41em;
+  max-height: auto;
+  max-width: 18%;
 }
 
 .leftArmHit{
   content: url("/img/simon/leftArmHit.gif");
+  position: relative;
+  top:27em;
+  left: 19em;
+  max-width: 20%;
+  max-height: auto;
 }
 
 .rightArmHit{
   content: url("/img/simon/rightArmHit.gif");
+  position: relative;
+  left: 46.5em;
+  bottom: 27.5em;
+  max-width: 20%;
+  max-height: auto;
 }
 
 .absHit{
   content: url("/img/simon/absHit.gif");
+  max-width: 20%;
+  max-height: auto;
+  margin: auto;
+  display: block;
+  position: relative;
+  bottom: 40em;
 }
-
