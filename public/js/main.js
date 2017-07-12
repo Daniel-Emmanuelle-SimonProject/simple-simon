@@ -110,17 +110,18 @@ function compare(input){
 	console.log('input: ' + input);
 	console.log('sequence: ' + sequence + ' length: ' + sequence.length);
 	console.log('iteration: ' + iteration);
-  if (iteration <sequence.length) {
+  if ((iteration - 1) < sequence.length) {
     if (sequence[iteration-1] == input ) {
       console.log("GOOD");
+			if (iteration == sequence.length) {
+				round++;
+		    iteration = 0;
+		    randomNumber();
+			}
     }else {
       console.log("GAME OVER");
 			gameOver();
     }
-  }else {
-		round++;
-    iteration = 0;
-    randomNumber();
   }
 }
 
