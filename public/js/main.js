@@ -2,6 +2,8 @@
 "use strict";
 
 /***************AUDIO VARIABLES**************/
+// backround music
+var backroundMusic = $('#simonMusic')[0];
 //synth sounds
 var synthHead = $("#synthHead")[0];
 var synthLeftArm = $("#synthLeftArm")[0];
@@ -13,7 +15,6 @@ var simonSaysFight = $("#simonSaysFight")[0];
 var simonTaunt = $("#simonTaunt")[0];
 var simonLaugh = $("#simonLaugh")[0];
 var punchSFX = $("#punchSFX")[0];
-
 //global variables
 var sequence = [];
 var iteration = 0;
@@ -23,7 +24,6 @@ var speed = 1500;
 var doc = $(document);
 
 /************************ GAME FUNCTIONS ******************/
-$("#tattoo").on('click',startGame);
 function startGame(){
 	simonLaugh.currentTime = 0;
 	simonSaysFight.play();
@@ -31,11 +31,15 @@ function startGame(){
 	$('#tattoo').off('click');
 }
 function gameOver(){
-	simonLaugh.play();
+	simonTaunt.play();
 	$('#tattoo').on('click',startGame)
 	sequence = [];
 	iteration = 0;
 	count = 0;
+}
+
+function musicToggle(){
+
 }
 //random number generator from 1-4
 function randomNumber(){
@@ -219,6 +223,8 @@ function abs(){
 		compare(4);
 	},250)
 }
+$("#tattoo").on('click',startGame);
+$('#toggle').on('click',musicToggle);
 
 
 })();
