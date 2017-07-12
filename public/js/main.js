@@ -3,19 +3,19 @@
 
 /***************AUDIO VARIABLES**************/
 // backround music
-var backroundMusic = $('#simonMusic')[0];
+var simonMusic = new Audio('/sound/simonMusicFinal.mp3');
+var musicCheck = false;
 //synth sounds
 var synthHead = $("#synthHead")[0];
 var synthLeftArm = $("#synthLeftArm")[0];
 var synthRightArm = $("#synthRightArm")[0];
 var synthAbs = $("#synthAbs")[0];
-
 //misc sounds
 var simonSaysFight = $("#simonSaysFight")[0];
 var simonTaunt = $("#simonTaunt")[0];
 var simonLaugh = $("#simonLaugh")[0];
 var punchSFX = $("#punchSFX")[0];
-//global variables
+/****************GAME VARIABLES ********************/
 var sequence = [];
 var iteration = 0;
 var count = 0;
@@ -23,6 +23,27 @@ var round = 1;
 var speed = 1500;
 var doc = $(document);
 
+/********************* MUSIC FUNCTIONS *******************/
+
+function toggleMusic(){
+console.log("Toggle Music");
+	if (musicCheck) {
+		console.log("Music Check was true, starting Music");
+		musicCheck = false;
+		simonMusic.addEventListener('ended',musicLoop,musicCheck)
+
+		function musicLoop(){
+			this.currentTime = 0;
+			this.play();
+		}
+		simonMusic.play();
+	}else {
+		console.log('Music Check was false, Pause Music');
+		simonMusic.pause();
+		simonMusic.currentTime = 0;
+		musicCheck = true;
+	}
+}
 /************************ GAME FUNCTIONS ******************/
 function startGame(){
 	simonLaugh.currentTime = 0;
@@ -38,9 +59,7 @@ function gameOver(){
 	count = 0;
 }
 
-function musicToggle(){
 
-}
 //random number generator from 1-4
 function randomNumber(){
 	disableEvents();
@@ -224,7 +243,9 @@ function abs(){
 	},250)
 }
 $("#tattoo").on('click',startGame);
-$('#toggle').on('click',musicToggle);
+$('#toggleMusic').click(toggleMusic)
+simonMusic.play();
+console.log(musicCheck);
 
 
 })();
