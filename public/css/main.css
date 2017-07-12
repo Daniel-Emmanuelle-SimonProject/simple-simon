@@ -167,3 +167,10 @@ div.rightArm, div.leftArm {
   position: relative;
   bottom: 40em;
 }
+
+/****MISC FUNCTIONALITY*****/
+
+.toggleMusic{
+  margin: 0;
+  text-align: center;
+}
