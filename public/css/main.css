@@ -177,3 +177,9 @@ div.rightArm, div.leftArm {
   margin: 0;
   text-align: center;
 }
+
+.gameover {
+  content: url("/img/simon/gameover.gif");
+  max-height: auto;
+  max-width: 60%;
+}
