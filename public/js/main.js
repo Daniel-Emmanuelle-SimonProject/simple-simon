@@ -40,27 +40,27 @@ function boxSelected(){
 		var changeOpacity = setInterval(function(){
 			if (count < sequence.length) {
 				if (sequence[count] == 1) {
-					$('#head').css('opacity','0')
+					$('#head').toggleClass('head').toggleClass('headSelect')
 					setTimeout(function(){
-						$('#head').css('opacity','1')
+						$('#head').toggleClass('headSelect').toggleClass('head')
 					},400);
 					count++;
 				}else if (sequence[count] == 2) {
-					$('#leftArm').css('opacity','0')
+					$('#leftArm').toggleClass('leftArm').toggleClass('leftArmSelect')
 					setTimeout(function(){
-						$('#leftArm').css('opacity','1')
+						$('#leftArm').toggleClass('leftArmSelect').toggleClass('leftArm');
 					},400);
 					count++;
 				}else if (sequence[count] == 3) {
-					$('#rightArm').css('opacity','0')
+					$('#rightArm').toggleClass('rightArm').toggleClass('rightArmSelect')
 					setTimeout(function(){
-						$('#rightArm').css('opacity','1')
+						$('#rightArm').toggleClass('rightArmSelect').toggleClass('rightArm')
 					},400);
 					count++
 				}else if (sequence[count] == 4) {
-					$('#abs').css('opacity','0')
+					$('#abs').toggleClass('abs').toggleClass('absSelect')
 					setTimeout(function(){
-						$('#abs').css('opacity','1')
+						$('#abs').toggleClass('absSelect').toggleClass('abs')
 					},400);
 					count++
 				}
@@ -148,29 +148,29 @@ function downArrow(e){
 		};
 }
 function head(){
-	$("#head").css("content", "url(/img/simon/simonHeadHit.gif)");
+	$("#head").toggleClass('head').toggleClass('headHit')
 	iteration++;
-	$("#head").css("content", "url(/img/simon/simonHead.gif)");
+	$("#head").toggleClass('headHit').toggleClass('head');
 	compare(1);
 }
 
 function leftArm(){
-	$("#leftArm").css("opacity", "0.75");
+	$("#leftArm").toggleClass('leftArm').toggleClass('leftArmHit')
 	iteration++;
-	$("#leftArm").css("opacity", "1");
+	$("#leftArm").toggleClass('leftArmHit').toggleClass('leftArm')
 	compare(2);
 }
 
 function rightArm(){
-	$("#rightArm").css("opacity", "0.75");
+	$("#rightArm").toggleClass('rightArm').toggleClass('rightArmHit')
 	iteration++;
-	$("#rightArm").css("opacity", "1");
+	$("#rightArm").toggleClass('rightArmHit').toggleClass('rightArm')
 	compare(3);
 }
 function abs(){
-	$("#abs").css("opacity", "0.75");
+	$("#abs").toggleClass('abs').toggleClass('absHit')
 	iteration++;
-	$("#abs").css("opacity", "1");
+	$("#abs").toggleClass('absHit').toggleClass('abs')
 	compare(4);
 }
 
