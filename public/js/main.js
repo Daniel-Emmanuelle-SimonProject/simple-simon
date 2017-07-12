@@ -52,6 +52,7 @@ function startGame(){
 	$('#tattoo').off('click');
 }
 function gameOver(){
+	disableEvents();
 	simonTaunt.play();
 	$('#tattoo').on('click',startGame)
 	sequence = [];
@@ -174,29 +175,30 @@ function disableEvents(){
 }
 
 function upArrow(e){
+	console.log(e);
+	e.preventDefault();
 		if(e.keyCode == 38){
-			e.preventDefault();
 			head();
 		};
 }
 
 function leftArrow(e){
+	e.preventDefault();
 		if(e.keyCode == 37){
-			e.preventDefault();
 			leftArm();
 		};
 }
 
 function rightArrow(e){
+	e.preventDefault();
 		if(e.keyCode == 39){
-			e.preventDefault();
 			rightArm();
 		};
 }
 
 function downArrow(e){
+	e.preventDefault();
 		if(e.keyCode == 40){
-			e.preventDefault();
 			abs();
 		};
 }
