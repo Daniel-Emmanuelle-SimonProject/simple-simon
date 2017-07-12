@@ -5,24 +5,32 @@
 var sequence = [];
 var iteration = 0;
 var count = 0;
+var round = 1;
+var speed = 1500;
 var doc = $(document);
 
 /************************ GAME FUNCTIONS ******************/
 $("#tattoo").click(startGame);
 function startGame(){
 	randomNumber();
-	setTimeout(attachEvents,2000)
 }
 //random number generator from 1-4
 function randomNumber(){
+	disableEvents();
 	var number = parseInt(Math.random() * (5 - 1) + 1);
-	$('#round').html((count + 1));
+	$('#round').html((round));
+	if (round % 5 == 0) {
+		speed -= 50;
+	}else if (speed == 400 ) {
+		speed = 350;
+	}
+	console.log("The round is: " + round);
+	console.log("The count is: " + count);
+	console.log("the speed is: " + speed);
 	sequence.push(number);
   console.log(sequence);
-	boxSelected(sequence);
+	boxSelected(speed);
 };
-
-
 
 
  // runs through sequence array and changes opacity of boxes determined by number value
@@ -35,34 +43,35 @@ function boxSelected(){
 					$('#head').css('opacity','0')
 					setTimeout(function(){
 						$('#head').css('opacity','1')
-					},1000);
+					},400);
 					count++;
 				}else if (sequence[count] == 2) {
 					$('#leftArm').css('opacity','0')
 					setTimeout(function(){
 						$('#leftArm').css('opacity','1')
-					},1000);
+					},400);
 					count++;
 				}else if (sequence[count] == 3) {
 					$('#rightArm').css('opacity','0')
 					setTimeout(function(){
 						$('#rightArm').css('opacity','1')
-					},1000);
+					},400);
 					count++
 				}else if (sequence[count] == 4) {
 					$('#abs').css('opacity','0')
 					setTimeout(function(){
 						$('#abs').css('opacity','1')
-					},1000);
+					},400);
 					count++
 				}
 			}else {
+				attachEvents();
 				clearInterval(changeOpacity);
 				count = 0;
 				console.log("All Done");
 			}
-		},1600)
-	},1500);
+		},speed)
+	},1000);
 }
 
 function compare(input){
@@ -80,6 +89,7 @@ function compare(input){
 			count = 0;
     }
   }else {
+		round++;
     iteration = 0;
     randomNumber();
   }
@@ -92,7 +102,7 @@ function attachEvents(){
 	$("#head").on('click',head)
 	doc.on('keyup',upArrow)
 
-	$("leftArm").on('click',leftArm)
+	$("#leftArm").on('click',leftArm)
 	doc.on('keyup',leftArrow)
 
 	$("#rightArm").on('click',rightArm)
@@ -100,6 +110,14 @@ function attachEvents(){
 
 	$("#abs").on('click',abs)
 	doc.on('keyup',downArrow)
+}
+
+function disableEvents(){
+	doc.off('keyup');
+	$("#head").off('click')
+	$("#leftArm").off('click')
+	$("#rightArm").off('click')
+	$("#abs").off('click')
 }
 
 function upArrow(e){
@@ -155,7 +173,6 @@ function abs(){
 	$("#abs").css("opacity", "1");
 	compare(4);
 }
-
 
 
 })();
